@@ -1,0 +1,20 @@
+{
+  "name": "cookie-banner-extension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "web-ext run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Milvookie/moz-extension-cookie-banner.git"
+  },
+  "author": "Candice",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Milvookie/moz-extension-cookie-banner/issues"
+  },
+  "homepage": "https://github.com/Milvookie/moz-extension-cookie-banner#readme"
+}

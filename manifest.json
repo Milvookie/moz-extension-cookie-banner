@@ -1,0 +1,17 @@
+{
+
+    "manifest_version": 2,
+    "name": "cookie-banner",
+    "version": "1.0",
+  
+    "description": "Adds a red border to all webpages matching mozilla.org.",
+  
+    "content_scripts": [
+      {
+        "matches": ["*://*.mozilla.org/*"],
+        "js": ["main.js"]
+      }
+    ]
+  
+  }
+  
