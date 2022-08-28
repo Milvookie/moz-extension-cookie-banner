@@ -1,17 +1,23 @@
 {
+  "manifest_version": 2,
+  "name": "Rate Cookie Banner",
+  "version": "1.0",
 
-    "manifest_version": 2,
-    "name": "cookie-banner",
-    "version": "1.0",
-  
-    "description": "Adds a red border to all webpages matching mozilla.org.",
-  
-    "content_scripts": [
-      {
-        "matches": ["*://*.mozilla.org/*"],
-        "js": ["main.js"]
-      }
-    ]
-  
+  "description": "Get infos to check the quality of the cookie banner in compliance of the GDPR",
+  "icons": {
+    "48": "cookie.png"
+  },
+
+  "permissions": [
+    "activeTab",
+    "<all_urls>",
+    "tabs"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/cookie.png",
+    "default_title": "get infos from cookie banner",
+    "default_popup": "popup/popup.html"
   }
-  
+
+}
