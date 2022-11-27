@@ -10,13 +10,8 @@
   window.hasRun = true;
 
   function cookieBanner() {
-    let elements = document.querySelectorAll('body *')
-    let body = document.querySelector('body')
-    //elements.forEach(element => {
-//
-    //})
-    let firstNodeCookie = getTextNode(body)
-    return firstNodeCookie;
+    let body = document.querySelector('body') 
+    return getTextNode(body);
   }
 
   function getTextNode(element) {
@@ -32,9 +27,8 @@
                 if (regex.test(text)) {
                   let parentNode = node.parentElement
                   parentNode.style.border = "10px solid red"; //add border to element ?
-                  return node.parentElement; //return element
-                  
-                  
+                  console.log(parentNode);
+                  return parentNode.tagName; //return element
                   //look through element's childrenfor buttons
                   //get style??
                 } 

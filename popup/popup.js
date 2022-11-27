@@ -74,7 +74,7 @@ browser.runtime.onMessage.addListener((message) => {
     numberOfNodes('remove')
   } else if (message.command === "cookieBanner") {
     let resultDiv = document.getElementById("results-cookie");
-    resultDiv.innerHTML = 'yes'
+    resultDiv.innerHTML = message.banner
     let cookieBanner = message.banner
     console.log(cookieBanner);
   }
