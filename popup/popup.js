@@ -9,6 +9,12 @@ function listenForClicks() {
         });
     }
 
+    function getCookieBanner(tabs) {
+      browser.tabs.sendMessage(tabs[0].id, {
+        command: "getCookieBanner"
+      });
+  }
+
     /**
      * send a "reset" message to the content script in the active tab.
      */
@@ -39,6 +45,11 @@ function listenForClicks() {
         .query({ active: true, currentWindow: true })
         .then(reset)
         .catch(reportError);
+    } else if (e.target.id == 'cookie-banner') {
+      browser.tabs
+      .query({ active: true, currentWindow: true })
+      .then(getCookieBanner)
+      .catch(reportError);
     }
   });
 
@@ -47,7 +58,9 @@ function listenForClicks() {
 browser.tabs
   .executeScript({ file: "/content_scripts/get_cookie_banner.js" })
   .then(listenForClicks)
-  .catch(console.log('there has been an error'));
+  .catch((err) => {
+    console.log(err);
+  });
 /**
  * Listen for message from the content script
  */
@@ -59,6 +72,11 @@ browser.runtime.onMessage.addListener((message) => {
     console.log(message.nodes)
   } else if (message.command === "removeCountNodes") {
     numberOfNodes('remove')
+  } else if (message.command === "cookieBanner") {
+    let resultDiv = document.getElementById("results-cookie");
+    resultDiv.innerHTML = 'yes'
+    let cookieBanner = message.banner
+    console.log(cookieBanner);
   }
 });
 /**
